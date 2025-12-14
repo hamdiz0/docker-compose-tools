@@ -1,2 +1,3 @@
-# docker-compose-files
-docker-compose-files
+# docker-compose-tools
+
+docker compose configurations for modern tools

@@ -1,0 +1,25 @@
+services:
+
+  postgres:
+    image: postgres:16
+    restart: always
+    container_name: postgresql
+    environment:
+      - POSTGRES_DB
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_NON_ROOT_USER
+      - POSTGRES_NON_ROOT_PASSWORD
+      - PGPORT=5000
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+      - ./init.sh:/docker-entrypoint-initdb.d/init-data.sh
+    ports:
+      - "5000:5000"
+    networks:
+      - postgres_network
+
+volumes:
+  postgresql_data:
+networks:
+  postgres_network:

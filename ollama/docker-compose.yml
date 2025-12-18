@@ -16,9 +16,12 @@ services:
     deploy:
       resources:
         reservations:
+          cpus: '2'
+          memory: 4G 
           devices:
             - driver: nvidia
-              capabilities: [gpu]
+              count: all
+              capabilities: [gpu, compute, utility]
 
   webui:
 

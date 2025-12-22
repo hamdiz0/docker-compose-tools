@@ -2,7 +2,7 @@ services:
 
   postgres:
     image: postgres:16
-    restart: always
+    restart: unless-stopped
     container_name: n8n_postgres
     ports:
       - 5432:5432
@@ -20,7 +20,7 @@ services:
 
   n8n:
     image: docker.n8n.io/n8nio/n8n
-    restart: always
+    restart: unless-stopped
     container_name: n8n
     ports:
       - 5678:5678
